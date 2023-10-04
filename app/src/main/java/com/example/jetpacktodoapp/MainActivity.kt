@@ -9,6 +9,8 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.jetpacktodoapp.components.EditDialog
@@ -33,10 +35,13 @@ class MainActivity : ComponentActivity() {
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun MainContent() {
-  EditDialog()
+  val isShowDialog = remember { mutableStateOf(false) }
+  if (isShowDialog.value) {
+    EditDialog()
+  }
 
   Scaffold(floatingActionButton = {
-    FloatingActionButton(onClick = { /*TODO*/ }) {
+    FloatingActionButton(onClick = { isShowDialog.value = true }) {
       Icon(imageVector = Icons.Default.Add, contentDescription = "新規作成")
     }
   }) {
