@@ -6,13 +6,14 @@ import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun EditDialog() {
+fun EditDialog(isShowDialog: MutableState<Boolean>) {
   AlertDialog(
-    onDismissRequest = { /*TODO*/ },
+    onDismissRequest = { isShowDialog.value = false },
     title = { Text(text = "タスク新規作成") },
     text = {
       Column {
@@ -30,7 +31,7 @@ fun EditDialog() {
         Spacer(modifier = Modifier.weight(1f))
         Button(
           modifier = Modifier.width(120.dp),
-          onClick = { /*TODO*/ },
+          onClick = { isShowDialog.value = false },
         ) {
           Text(text = "キャンセル")
         }

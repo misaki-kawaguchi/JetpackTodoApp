@@ -37,7 +37,7 @@ class MainActivity : ComponentActivity() {
 fun MainContent() {
   val isShowDialog = remember { mutableStateOf(false) }
   if (isShowDialog.value) {
-    EditDialog()
+    EditDialog(isShowDialog)
   }
 
   Scaffold(floatingActionButton = {
