@@ -11,6 +11,7 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.jetpacktodoapp.components.EditDialog
 import com.example.jetpacktodoapp.ui.theme.JetpackTodoAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -32,6 +33,8 @@ class MainActivity : ComponentActivity() {
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun MainContent() {
+  EditDialog()
+
   Scaffold(floatingActionButton = {
     FloatingActionButton(onClick = { /*TODO*/ }) {
       Icon(imageVector = Icons.Default.Add, contentDescription = "新規作成")
