@@ -13,6 +13,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.jetpacktodoapp.components.EditDialog
 import com.example.jetpacktodoapp.ui.theme.JetpackTodoAppTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -34,14 +36,13 @@ class MainActivity : ComponentActivity() {
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun MainContent() {
-  val isShowDialog = remember { mutableStateOf(false) }
-  if (isShowDialog.value) {
-    EditDialog(isShowDialog)
+fun MainContent(viewModel: MainViewModel = hiltViewModel()) {
+  if (viewModel.isShowDialog) {
+    EditDialog()
   }
 
   Scaffold(floatingActionButton = {
-    FloatingActionButton(onClick = { isShowDialog.value = true }) {
+    FloatingActionButton(onClick = { viewModel.isShowDialog = true }) {
       Icon(imageVector = Icons.Default.Add, contentDescription = "新規作成")
     }
   }) {
