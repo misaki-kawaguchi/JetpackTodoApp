@@ -49,8 +49,8 @@ fun MainContent(viewModel: MainViewModel = hiltViewModel()) {
 
     TaskList(
       tasks = tasks,
-      onClickRow = { /* TODO*/ },
-      onClickDelete = { /* TODO*/ },
-    )
+      onClickRow = { /* TODO */},
+      onClickDelete = { viewModel.deleteTask(it) },
+    );
   }
 }
