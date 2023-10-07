@@ -49,7 +49,10 @@ fun MainContent(viewModel: MainViewModel = hiltViewModel()) {
 
     TaskList(
       tasks = tasks,
-      onClickRow = { /* TODO */},
+      onClickRow = {
+        viewModel.setEditingTask(it)
+        viewModel.isShowDialog = true
+      },
       onClickDelete = { viewModel.deleteTask(it) },
     );
   }
