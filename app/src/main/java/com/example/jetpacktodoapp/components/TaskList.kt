@@ -15,8 +15,8 @@ fun TaskList(
     items(tasks) { task ->
       TaskRow(
         task = task,
-        onClickRow = { onClickRow },
-        onClickDelete = { onClickDelete },
+        onClickRow = onClickRow,
+        onClickDelete = onClickDelete,
       )
     }
   }
